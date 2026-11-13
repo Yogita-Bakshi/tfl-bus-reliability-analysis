@@ -1,0 +1,65 @@
+======================================================================
+RQ3: PREDICTIVE MODELLING - ON-TIME vs DELAYED CLASSIFICATION
+======================================================================
+Total records: 5800
+Class balance: {1: 0.721, 0: 0.279}
+
+Train: 4059  |  Validation: 871  |  Test: 870
+
+
+--- Naive baseline (majority class) ---
+Accuracy:  0.814
+Precision: 0.814
+Recall:    1.000
+F1-score:  0.897
+AUC-ROC:   0.500
+Confusion matrix (rows=actual, cols=predicted):
+[[  0 162]
+ [  0 708]]
+
+--- Logistic Regression ---
+Accuracy:  0.186
+Precision: 0.000
+Recall:    0.000
+F1-score:  0.000
+AUC-ROC:   0.297
+Confusion matrix (rows=actual, cols=predicted):
+[[162   0]
+ [708   0]]
+
+--- Random Forest ---
+Accuracy:  0.337
+Precision: 0.810
+Recall:    0.242
+F1-score:  0.372
+AUC-ROC:   0.568
+Confusion matrix (rows=actual, cols=predicted):
+[[122  40]
+ [537 171]]
+
+--- Gradient Boosting ---
+Accuracy:  0.648
+Precision: 0.838
+Recall:    0.703
+F1-score:  0.765
+AUC-ROC:   0.612
+Confusion matrix (rows=actual, cols=predicted):
+[[ 66  96]
+ [210 498]]
+
+======================================================================
+MODEL COMPARISON SUMMARY
+======================================================================
+                          model  accuracy  precision  recall    f1   auc
+Naive baseline (majority class)     0.814      0.814   1.000 0.897 0.500
+            Logistic Regression     0.186      0.000   0.000 0.000 0.297
+                  Random Forest     0.337      0.810   0.242 0.372 0.568
+              Gradient Boosting     0.648      0.838   0.703 0.765 0.612
+
+Gradient Boosting feature importance:
+    feature  importance
+headway_min    0.481074
+       hour    0.397334
+day_of_week    0.054086
+      route    0.052139
+  time_band    0.015367

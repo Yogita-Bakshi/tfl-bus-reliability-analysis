@@ -1,0 +1,69 @@
+======================================================================
+OVERALL PERFORMANCE SUMMARY
+======================================================================
+Overall OTP: 73.1%
+Overall mean delay: 2.15 min (median 0.00 min)
+Overall mean headway: 67.37 min
+
+======================================================================
+BY ROUTE
+======================================================================
+ route  n_trips  mean_delay_min  median_delay_min  std_delay_min   otp_pct  mean_headway_min  headway_cov
+    38     2946        2.605584          0.183333       5.619817 70.264766         51.784497     5.199431
+    73     1852        1.206659          0.000000       3.092176 75.431965         64.838637     4.612614
+    24     1218        2.483566          0.166667       4.499521 76.436782        110.196080     3.498614
+
+Kruskal-Wallis (delay ~ route): H=85.33, p=2.958e-19
+--> Statistically significant difference in delay across routes.
+Dunn's post-hoc pairwise p-values (Bonferroni-adjusted):
+     24   38   73
+24  1.0  1.0  0.0
+38  1.0  1.0  0.0
+73  0.0  0.0  1.0
+
+======================================================================
+BY TIME OF DAY
+======================================================================
+ time_band  n_trips  mean_delay_min  median_delay_min  std_delay_min   otp_pct  mean_headway_min  headway_cov
+   pm_peak     2191        2.766971               0.9       5.662169 67.822912          7.502107     0.804295
+inter_peak     3825        1.796950               0.0       4.161363 76.130719        103.715785     3.688383
+
+Kruskal-Wallis (delay ~ time_band): H=64.17, p=1.144e-15
+--> Statistically significant difference in delay across time bands.
+
+======================================================================
+BY DAY OF WEEK
+======================================================================
+day_of_week  n_trips  mean_delay_min  median_delay_min  std_delay_min   otp_pct  mean_headway_min  headway_cov
+     Friday     5152        2.510824          0.783333       5.082849  68.59472         75.035329     4.306942
+   Thursday      864        0.000000          0.000000       0.000000 100.00000          6.428035     0.619690
+
+Kruskal-Wallis (delay ~ day_of_week): H=361.09, p=1.631e-80
+--> Statistically significant difference in delay across days.
+Dunn's post-hoc pairwise p-values (Bonferroni-adjusted):
+          Thursday  Friday
+Thursday       1.0     0.0
+Friday         0.0     1.0
+
+Mann-Whitney U (weekday vs weekend delay): U=nan, p=nan
+
+======================================================================
+BY LOCATION (STOP)
+======================================================================
+Top 'black spot' stops by mean delay:
+   naptanId  n_trips  mean_delay_min   otp_pct
+490003384SA       17        5.771569 58.823529
+ 490004695N       17        5.615686 47.058824
+490010260SC       18        5.584259 61.111111
+ 490000248H       17        5.431373 64.705882
+ 490008376N       19        5.325439 63.157895
+ 490014496N       18        5.272222 61.111111
+ 490014495R       18        5.116667 55.555556
+ 490000135A       19        5.105263 63.157895
+ 490005894E       36        5.099074 41.666667
+ 490015048A       19        5.008772 63.157895
+ 490013767C       20        4.937500 65.000000
+ 490009871E       36        4.799537 41.666667
+ 490006090E       35        4.514286 40.000000
+ 490014259N       17        4.364706 64.705882
+ 490005945K       37        4.136486 48.648649

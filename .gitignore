@@ -1,0 +1,6 @@
+*.docx
+*.pptx
+*.pdf
+raw_snapshots.csv
+synthetic_trip_records.csv
+__pycache__/

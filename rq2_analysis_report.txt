@@ -1,0 +1,59 @@
+======================================================================
+BIVARIATE SCREENING (chi-square for categorical factors)
+======================================================================
+route: chi2=24.06, dof=2, p=5.95e-06  --> significant
+time_band: chi2=48.48, dof=1, p=3.337e-12  --> significant
+day_of_week: chi2=369.57, dof=1, p=2.32e-82  --> significant
+headway_min: point-biserial r=-0.120, p=5.777e-20  --> significant
+
+======================================================================
+MULTIPLE LOGISTIC REGRESSION: poor_reliability ~ factors
+======================================================================
+Variance Inflation Factors (VIF > 5 suggests multicollinearity):
+             feature  VIF
+         headway_min 1.04
+            route_38 1.44
+            route_73 1.27
+   time_band_pm_peak 1.51
+day_of_week_Thursday 1.15
+
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:       poor_reliability   No. Observations:                 5800
+Model:                          Logit   Df Residuals:                     5794
+Method:                           MLE   Df Model:                            5
+Date:                Fri, 24 Jul 2026   Pseudo R-squ.:                 0.09063
+Time:                        05:25:20   Log-Likelihood:                -3122.3
+converged:                      False   LL-Null:                       -3433.4
+Covariance Type:            nonrobust   LLR p-value:                3.006e-132
+========================================================================================
+                           coef    std err          z      P>|z|      [0.025      0.975]
+----------------------------------------------------------------------------------------
+const                   -0.7789      0.077    -10.166      0.000      -0.929      -0.629
+headway_min             -0.0027      0.001     -5.046      0.000      -0.004      -0.002
+route_38                 0.2076      0.082      2.522      0.012       0.046       0.369
+route_73                -0.0181      0.090     -0.200      0.842      -0.195       0.159
+time_band_pm_peak       -0.0490      0.061     -0.800      0.424      -0.169       0.071
+day_of_week_Thursday   -24.7186    1.3e+04     -0.002      0.998   -2.55e+04    2.55e+04
+========================================================================================
+
+Possibly complete quasi-separation: A fraction 0.11 of observations can be
+perfectly predicted. This might indicate that there is complete
+quasi-separation. In this case some parameters will not be identified.
+
+Odds ratios (exp(coef)):
+const                   0.459
+headway_min             0.997
+route_38                1.231
+route_73                0.982
+time_band_pm_peak       0.952
+day_of_week_Thursday    0.000
+
+======================================================================
+RANDOM FOREST FEATURE IMPORTANCE (non-linear cross-check)
+======================================================================
+    feature  importance
+headway_min    0.471246
+day_of_week    0.463746
+      route    0.046613
+  time_band    0.018394
